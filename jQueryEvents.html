@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>JQuery Events</title>
+  </head>
+  <body>
+    <p>this is a paragraph</p>
+    <button id="hide">Hide</button> &nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="show">Show</button>
+    <input type="text" id="userName" />
+    <button id="getValue">Get text box value</button>
+    <script>
+      $(document).ready(function () {
+        $("p").css("color", "red");
+        $("#hide").click(function () {
+          $("p").hide();
+        });
+        $("#show").click(function () {
+          $("p").show();
+        });
+        $("#getValue").click(function () {
+          var data = $("#userName").val();
+          console.log(data);
+        });
+      });
+    </script>
+  </body>
+</html>

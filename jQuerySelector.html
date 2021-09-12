@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Jquery selector</title>
+  </head>
+  <body>
+    <p>Hi this is paragraph</p>
+    <p id="para">this is 2nd p</p>
+    <p class="para1">this is 3nd p</p>
+
+    <script>
+      $(document).ready(function () {
+        var data = $("p").html();
+        console.log(data);
+        var data = $("#para").html();
+        console.log(data);
+        var val = $(".para1").html();
+        console.log(val);
+      });
+    </script>
+  </body>
+</html>
