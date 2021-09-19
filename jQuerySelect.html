@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>jQuery Select</title>
+  </head>
+  <br>
+    <select id="dropdownSubject">
+      <option value="1">C#</option>
+      <option value="2">Java</option>
+      <option value="3">C++</option>
+      <option value="4">Php</option>
+      <option value="5">React js</option>
+    </select>
+    <button id="btnClick">Get Value</button></br></br></br>
+    <select id="dropdownCity" >
+        <option value="1">Delhi</option>
+        <option value="2" selected>Bangalore</option>
+        <option value="3">Pune</option>
+        <option value="4">Mumbai</option>
+      </select>
+    <script>
+      $(document).ready(function () {
+        $("#btnClick").click(function () {
+          var selectedValue = $("#dropdownSubject").val();
+          alert(selectedValue);
+        });
+        $("#dropdownCity").change(function(){
+            var selectedCity = $("#dropdownCity option:selected").text();
+         alert("selected city is "+selectedCity);
+        });
+      });
+//       function selectValue(){
+//     var selectedCity = $("#dropdownCity option:selected").text();
+//       alert("selected city is "+selectedCity);
+// }
+    </script>
+  </body>
+</html>

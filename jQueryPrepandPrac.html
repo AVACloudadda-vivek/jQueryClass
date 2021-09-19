@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html element creation using jQuery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="mainWrapper">Add Name: <input id="txtName" type="text" /></div>
+    <ol></ol>
+
+    <button id="btnAddListItem">Add list item</button>
+    <script>
+      $(document).ready(function () {
+        $("#btnAddListItem").click(function () {
+          var inputData = $("#txtName").val();
+          if (inputData.trim() === "") {
+            alert("Enter the value of Name");
+          } else {
+            $("ol").prepend("<li>" + inputData + "</li>");
+            $("#txtName").val("");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

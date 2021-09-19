@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html element creation using jQuery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="mainWrapper"></div>
+    <ol>
+      <li>this is item 1</li>
+      <li>this is item 2</li>
+    </ol>
+    <button id="btnHtmlGenerate">Click to generate html</button>
+    <button id="btnAddListItem">Add list item</button>
+    <script>
+      $(document).ready(function () {
+        var htmlData =
+          " <h1>This is an element coming from jQuery</h1><br/><p>this is also coming from jquery</p>";
+        $("#btnHtmlGenerate").click(function () {
+          $("#mainWrapper").html(htmlData);
+        });
+        $("#btnAddListItem").click(function () {
+          $("ol").prepend("<li>new item</li>");
+        });
+      });
+    </script>
+  </body>
+</html>
