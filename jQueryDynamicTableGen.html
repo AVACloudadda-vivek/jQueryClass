@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>jQuery Dynamic Select</title>
+  </head>
+  <body>
+    <!--html code-->
+    <div id="mainWrapper">
+      <input id="txtLangName" type="text" placeholder="Enter Langauge Name" />
+      &nbsp;&nbsp;
+      <button id="btnSave">Save</button><br /><br />
+      <div id="divTable"></div>
+    </div>
+
+    <!-- javascript code -->
+    <script>
+      $(document).ready(function () {
+        var langArray = [];
+        $("#btnSave").click(function () {
+          var htmlCode =
+            '<table border="1"><tr><th>Langauge Name</th><th>Actions</th></tr>';
+          var langName = $("#txtLangName").val();
+          langArray.push(langName);
+          for (var i = 0; i < langArray.length; i++) {
+            htmlCode +=
+              "<tr><td>" +
+              langArray[i] +
+              "</td><td><button>Edit</button>&nbsp;&nbsp;<button>Delete</button></td></tr>";
+          }
+          htmlCode += "</table>";
+          $("#divTable").html(htmlCode);
+        });
+      });
+    </script>
+  </body>
+</html>
