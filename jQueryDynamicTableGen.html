@@ -20,19 +20,72 @@
     <script>
       $(document).ready(function () {
         var langArray = [];
+        var editId;
+        var htmlCode;
+        console.log("edit id", editId);
+
         $("#btnSave").click(function () {
-          var htmlCode =
-            '<table border="1"><tr><th>Langauge Name</th><th>Actions</th></tr>';
+          htmlCode =
+            '<table id="dataTable" border="1"><tr><th>Langauge Name</th><th>Actions</th></tr>';
+          //getting value from textbox
           var langName = $("#txtLangName").val();
-          langArray.push(langName);
+          console.log("on save clck edit id", editId);
+
+          if (editId) {
+            //if editId have some value then come here
+            langArray[editId] = langName;
+            $("#btnSave").html("save");
+            editId = null;
+          } else {
+            //if edit id not have value then come here
+            //inserting in value
+            langArray.push(langName);
+          }
+
           for (var i = 0; i < langArray.length; i++) {
             htmlCode +=
               "<tr><td>" +
               langArray[i] +
-              "</td><td><button>Edit</button>&nbsp;&nbsp;<button>Delete</button></td></tr>";
+              "</td><td><button class='btnEdit' id='" +
+              i +
+              "' >Edit</button>&nbsp;&nbsp;<button class='btnDelete' id='" +
+              i +
+              "' >Delete</button></td></tr>";
           }
           htmlCode += "</table>";
           $("#divTable").html(htmlCode);
+          $("#txtLangName").val("");
+        });
+        //code for edit
+        $(document).on("click", ".btnEdit", function () {
+          editId = this.id;
+          // console.log("id", this.id);
+          // console.log("arrray value", langArray);
+          // console.log("selected array value", langArray[this.id]);
+          $("#txtLangName").val(langArray[this.id]);
+          $("#btnSave").html("edit");
+        });
+        //code for delete
+        $(document).on("click", ".btnDelete", function () {
+          langArray.splice(this.id, 1);
+          console.log("arrray value", langArray);
+          $("#btnSave").html("save");
+          editId = null;
+          htmlCode =
+            '<table id="dataTable" border="1"><tr><th>Langauge Name</th><th>Actions</th></tr>';
+          for (var i = 0; i < langArray.length; i++) {
+            htmlCode +=
+              "<tr><td>" +
+              langArray[i] +
+              "</td><td><button class='btnEdit' id='" +
+              i +
+              "' >Edit</button>&nbsp;&nbsp;<button class='btnDelete' id='" +
+              i +
+              "' >Delete</button></td></tr>";
+          }
+          htmlCode += "</table>";
+          $("#divTable").html(htmlCode);
+          $("#txtLangName").val("");
         });
       });
     </script>
